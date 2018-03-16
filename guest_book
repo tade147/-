@@ -1,0 +1,12 @@
+file_name = 'guest_book.txt'
+
+
+while True:
+    name = input("请输入你的名字：")
+    if name == '退出':
+        break
+    else:
+        with open(file_name, 'a') as file_object:
+            file_object.write(name + "使用了python!\n")
+        greet = name + ",你好，欢迎使用python!"
+        print(greet)
