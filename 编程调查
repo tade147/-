@@ -1,0 +1,9 @@
+file_name = 'reason_for_python.txt'
+while True:
+    reason = input("请告诉我你选择python的原因：")
+    if reason == '退出':
+        break
+    else:
+        with open(file_name,'a') as f:
+            f.write(reason + "。\n")
+        print(reason)
