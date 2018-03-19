@@ -5,7 +5,7 @@ def read_file(filename):
             contents = fo.read()
             print(contents)
     except FileNotFoundError:
-        print("Sorry, this file " + filename + " does not exsit!")
+        pass
 
 filenames = 'cats.txt', 'dogs.txt'
 for filename in filenames:
