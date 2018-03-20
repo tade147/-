@@ -1,0 +1,12 @@
+import json
+
+filename = 'numbers.json'
+try:
+    with open(filename) as f:
+        numbers = json.load(f)
+except FileNotFoundError:
+    numbers = input("What's your favorite numbers? ")
+    with open(filename, 'w') as f:
+        json.dump(numbers, f)
+else:
+    print("I know your favorite numbers! It's " + numbers)
