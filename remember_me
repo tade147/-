@@ -1,0 +1,45 @@
+import json
+
+def get_stored_username():
+    """如果存储了用户名就获取他"""
+    filename = 'username.json'
+    try:
+        with open(filename) as f:
+            username = json.load(f)
+    except FileNotFoundError:
+        return None
+    else:
+        return username
+
+def get_new_username():
+    """提示输入用户名"""
+    username = input("What's your name?")
+    filename = 'username.json'
+    with open(filename, 'w') as f:
+        json.dump(username, f)
+    return username
+
+def right_username():
+    """判断用户名是否正确"""
+    username = get_stored_username()
+    q = input("Is this your name? y/n ")
+    if q == 'y':
+        return get_stored_username()
+    if q == 'n':
+        return get_new_username()
+    else:
+        return None
+
+def greet_user():
+    """问候用户，指出其名字"""
+    username = get_stored_username()
+    if username:
+        print("welcome back! " + username + " ！")
+    else:
+        username = get_new_username()
+        print("We'll remember you! " + username + "!")
+
+get_new_username()
+get_stored_username()
+right_username()
+greet_user()
